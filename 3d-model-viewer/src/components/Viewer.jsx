@@ -30,7 +30,7 @@ const { models, selectedModel, selectedModelUrl, loading } = useAppSelector((sta
       {/* Model Viewer */}
       <ModelViewer modelUrl={selectedModelUrl} loading={loading} />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {models.map((model) => (
           <ModelCard
             key={model._id}

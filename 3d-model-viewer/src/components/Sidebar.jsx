@@ -5,7 +5,7 @@
 import { Menu, X } from 'lucide-react';
 
 const Sidebar = ({ open, setOpen, activeTab, setActiveTab }) => (
-  <aside className={`${open ? 'w-80' : 'w-16'} transition-all duration-300 bg-black/20 border-r border-purple-500/20`}>
+  <aside className={`${open ? 'w-full md:w-80' : 'w-16'} transition-all duration-300 bg-black/20 border-r border-purple-500/20`}>
     <div className="p-4">
       <div className="flex items-center justify-between mb-6">
         {open && (

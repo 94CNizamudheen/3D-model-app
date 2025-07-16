@@ -26,10 +26,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #0f0f0f;
 }
 
 h1 {
@@ -54,6 +53,14 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+h1, h2, h3, h4, h5 {
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 @media (prefers-color-scheme: light) {
