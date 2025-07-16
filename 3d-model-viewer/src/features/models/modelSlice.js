@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchModels, uploadModel ,fetchModelUrl} from './modelThunks';
+import { fetchModels, uploadModel, fetchModelUrl,  } from './modelThunks';
 
 const initialState = {
   models: [],
+  modelBlobs: {},
   selectedModel: null,
   selectedModelUrl: null,
   loading: false,
@@ -15,7 +16,8 @@ const modelSlice = createSlice({
   reducers: {
     setSelectedModel: (state, action) => {
       state.selectedModel = action.payload;
-      state.selectedModelUrl = null;
+      const id = action.payload?._id;
+      state.selectedModelUrl = id ? state.modelBlobs[id] : null;
     },
     clearSelectedModel: (state) => {
       state.selectedModel = null;
@@ -46,9 +48,20 @@ const modelSlice = createSlice({
         state.loading = false;
         state.error = action.error.message || 'Upload failed';
       })
+      .addCase(fetchModelUrl.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(fetchModelUrl.fulfilled, (state, action) => {
+        state.loading = false;
         state.selectedModelUrl = action.payload;
       })
+      .addCase(fetchModelUrl.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || 'Model load failed';
+      })
+
+
   },
 });
 

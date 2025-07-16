@@ -32,9 +32,11 @@ export const fetchModelUrl = createAsyncThunk(
   'models/fetchById',
   async (id) => {
     const response = await axios.get(`${BASE_URL}/models/${id}`, {
-      responseType: 'blob', // important to handle binary
+      responseType: 'blob',
     });
     const blobUrl = URL.createObjectURL(response.data);
     return blobUrl;
   }
 );
+
+
