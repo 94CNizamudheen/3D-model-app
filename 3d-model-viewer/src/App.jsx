@@ -31,7 +31,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="w-screen min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white flex flex-col md:flex-row">
+    <div className="sm:text-2xl w-screen min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white flex flex-col md:flex-row">
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <main className="flex-1 p-6">
