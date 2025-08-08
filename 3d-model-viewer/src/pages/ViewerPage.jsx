@@ -25,7 +25,7 @@ const ModelViewer = ({ modelUrl, loading }) => {
           <LoadingSpinner />
         ) : modelUrl ? (
           <model-viewer
-            key={modelUrl} // force re-render
+            key={modelUrl} 
             src={modelUrl}
             alt="3D model"
             auto-rotate

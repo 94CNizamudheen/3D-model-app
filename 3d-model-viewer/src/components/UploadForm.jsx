@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Upload, AlertCircle, Loader } from 'lucide-react';
 
-const MAX_FILE_SIZE = 100 * 1024 * 1024;
+const MAX_FILE_SIZE = 250 * 1024 * 1024;
 
 const schema = yup.object().shape({
   name: yup
@@ -39,7 +39,7 @@ const UploadForm = ({ onUpload, loading, error }) => {
 
   const onSubmit = (data) => {
     onUpload(data);
-    reset(); // clear form after submission
+    reset(); 
   };
 
   const handleDrop = (e) => {
