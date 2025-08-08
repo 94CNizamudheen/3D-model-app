@@ -15,18 +15,18 @@ exports.uploadModel = async (req, res) => {
     });
 
     await newModel.save();
-    return res.status(201).json({ message: 'Model uploaded successfully' });
+     res.status(201).json({ message: 'Model uploaded successfully' });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+     res.status(500).json({ error: error.message });
   }
 };
 
 exports.getAllModels = async (req, res) => {
   try {
     const models = await Model.find({}, 'name _id createdAt');
-    return res.json(models);
+     res.json(models);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+     res.status(500).json({ error: error.message });
   }
 };
 
@@ -51,6 +51,6 @@ exports.getModelById = async (req, res) => {
       .pipe(res);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: error.message });
+     res.status(500).json({ error: error.message });
   }
 };
