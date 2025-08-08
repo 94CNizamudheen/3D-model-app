@@ -10,23 +10,23 @@ exports.uploadModel = async (req, res) => {
 
     const newModel = new Model({
       name: req.body.name,
-      filePath: req.file.gridfsFileName, 
+      filePath: req.file.gridfsFileName,
       contentType: req.file.mimetype,
     });
 
     await newModel.save();
-    res.status(201).json({ message: 'Model uploaded successfully' });
+    return res.status(201).json({ message: 'Model uploaded successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 };
 
 exports.getAllModels = async (req, res) => {
   try {
     const models = await Model.find({}, 'name _id createdAt');
-    res.json(models);
+    return res.json(models);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 };
 
@@ -51,6 +51,6 @@ exports.getModelById = async (req, res) => {
       .pipe(res);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 };
